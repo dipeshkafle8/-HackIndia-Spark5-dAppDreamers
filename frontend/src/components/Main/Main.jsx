@@ -16,7 +16,6 @@ function Main() {
   return (
     <>
       <Navbar />
-
       <FrontPageDesign />
     </>
   );
