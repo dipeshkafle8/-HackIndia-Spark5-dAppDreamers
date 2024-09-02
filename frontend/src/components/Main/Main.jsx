@@ -1,12 +1,11 @@
 import Navbar from "../Navbar/Navbar";
 import { useNavigate } from "react-router-dom";
-
+import FrontPageDesign from "./FrontPageDesign";
 function Main() {
-  const navigate = useNavigate();
-  navigate("/login");
   return (
     <>
       <Navbar />
+      <FrontPageDesign />
     </>
   );
 }
