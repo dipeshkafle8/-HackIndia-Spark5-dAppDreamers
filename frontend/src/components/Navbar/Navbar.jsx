@@ -1,21 +1,20 @@
-import SessionContext from "../Login/SessionContext";
 import { useContext } from "react";
-//import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { SessionContext } from "../Login/SessionContext";
 function Navbar() {
-  const sessionUser = useContext(SessionContext);
+  const {user} = useContext(SessionContext);
   const [isLoggedIn, setLogInAndLogout] = useState("login");
   const [displayText, setDisplayText] = useState("");
   useEffect(() => {
-    console.log(sessionUser.user);
-    if (sessionUser.user) {
+    console.log(user);
+    if (user) {
       setLogInAndLogout("logout");
       setDisplayText("Logout");
     } else {
       setLogInAndLogout("login");
       setDisplayText("Login");
     }
-  }, [sessionUser.user]);
+  }, [user]);
 
   return (
     <>
@@ -24,7 +23,7 @@ function Navbar() {
           d<span className="text-3xl text-green-600">A</span>pp{" "}
           <span className="text-3xl text-green-600">D</span>reamers
         </div>
-        <ul className="flex w-[35%] justify-evenly text-white mr-2 mt-2">
+        <ul className="flex  gap-4  justify-evenly text-white mr-2 mt-2">
           <li>
             <a
               className="px-12 border-2 py-2 bg-[rgb(18,18,18)] rounded-full"

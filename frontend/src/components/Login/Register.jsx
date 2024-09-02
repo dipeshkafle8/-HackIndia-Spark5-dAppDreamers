@@ -16,7 +16,7 @@ function Register() {
       empId: formData.get("emp-Id") ?? "",
       department: formData.get("department") ?? "",
       dateOfJoining: formData.get("dateOfJoining") ?? "",
-      wallletAddress: formData.get("wallet-address") ?? "",
+      walletAddress: formData.get("wallet-address") ?? "",
     };
     console.log(obj);
 

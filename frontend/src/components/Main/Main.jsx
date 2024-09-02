@@ -1,12 +1,20 @@
+import { useContext, useEffect, useState  } from "react";
 import Navbar from "../Navbar/Navbar";
-import { useNavigate } from "react-router-dom";
-
+import {SessionContext} from "../Login/SessionContext";
 function Main() {
-  const navigate = useNavigate();
-  navigate("/login");
+  const {user} = useContext(SessionContext);
+
+  const [walletAddress, setWalletAddress] = useState("");
+
+  useEffect(() => {
+    console.log(user.walletAddress)
+    setWalletAddress(user.walletAddress)
+  }, []);
+
   return (
     <>
       <Navbar />
+
     </>
   );
 }
