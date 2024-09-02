@@ -2,15 +2,12 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
-import SessionContext from "./SessionContext";
+import { SessionContext } from "./SessionContext";
 import Swal from "sweetalert2";
 
 function Login() {
   const navigate = useNavigate();
-  const userSession = useContext(SessionContext);
-  if (userSession.user) {
-    navigate("/");
-  }
+  const { setUser } = useContext(SessionContext);
   async function handleOnSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -21,7 +18,7 @@ function Login() {
     try {
       let response = await axios.post("http://localhost:8001/login", obj);
       if (response.status === 200) {
-        userSession.login(obj);
+        setUser(response.data.user);
         navigate("/");
       }
     } catch (err) {

@@ -3,8 +3,9 @@ const cors=require('cors');
 const {route}=require('./routes/routes');
 const { connectMongo } = require('./connection');
 const port=8001;
+require('dotenv').config();
 const app=express();
-let url="mongodb+srv://dipesh1478be22:r5gQ3NYw6sG5dcwo@users.pfknu.mongodb.net/?retryWrites=true&w=majority&appName=users";
+let url=process.env.Mong_url;
 
 connectMongo(url)
 .then(()=>{
@@ -18,5 +19,6 @@ app.use(cors());
 app.use("/",route);
 
 app.listen(port,()=>{
+    
 console.log("Server running successfully");
 })
