@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { SessionContext } from "../Login/SessionContext";
 function Navbar() {
-  const {user} = useContext(SessionContext);
+  const { user } = useContext(SessionContext);
   const [isLoggedIn, setLogInAndLogout] = useState("login");
   const [displayText, setDisplayText] = useState("");
   useEffect(() => {
@@ -18,7 +18,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="flex justify-between  bg-black text-white mt-2">
+      <nav className="flex justify-between  bg-black text-white mt-4">
         <div className="logo text-2xl text-white font-bold ml-2">
           d<span className="text-3xl text-green-600">A</span>pp{" "}
           <span className="text-3xl text-green-600">D</span>reamers

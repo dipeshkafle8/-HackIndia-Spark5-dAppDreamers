@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev":"nodemon server.js"
+    "dev": "nodemon server.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",

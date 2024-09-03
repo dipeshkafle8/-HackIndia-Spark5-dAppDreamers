@@ -2,7 +2,9 @@ import bitcoin from "../../assets/bitcoin.png";
 import { SessionContext } from "../Login/SessionContext";
 import { useContext, useState } from "react";
 import { useEffect } from "react";
+import Modal from "../../Modal";
 function FrontPageDesign() {
+  const [showModal, setShowModal] = useState(null);
   const values = useContext(SessionContext);
   const [Address, setwalletAddress] = useState(values.user.walletAddress);
   useEffect(() => {
@@ -48,6 +50,30 @@ function FrontPageDesign() {
           </h2>
         </div>
       </div>
+      <div className="button text-white ml-52">
+        <button
+          className="border-2  border-[rgb(17,5,245)] px-8 py-2 bg-[rgb(107,100,241)] hover:bg-[rgb(56,51,156)] rounded-full font-semibold text-xl"
+          onClick={() => setShowModal(true)}
+        >
+          Let&rsquo;s Start..
+        </button>
+      </div>
+
+      {showModal ? (
+        <Modal>
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-8 rounded-lg shadow-lg text-black w-[40%] h-[50%]">
+              <h2 className="text-2xl font-bold mb-4">This is the Modal</h2>
+              <button
+                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+                onClick={() => setShowModal(false)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </Modal>
+      ) : null}
     </>
   );
 }
